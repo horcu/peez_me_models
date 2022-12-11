@@ -9,7 +9,7 @@ type Game struct {
 	RoundTime          int             `json:"roundTime"`
 	PlayIndex          int             `json:"playIndex"`
 	PlayerTurnId       string          `json:"playerTurnId"`
-	Plays              map[string]play `json:"plays"`
+	Plays              map[string]Play `json:"plays"`
 	LeaderId           string          `json:"leaderId"`
 	PlayDirection      string          `json:"playDirection"`
 	Barriers           []string        `json:"barriers"`
@@ -17,7 +17,7 @@ type Game struct {
 	Rewards            []string        `json:"rewards"`
 }
 
-type play struct {
+type Play struct {
 	Word          string         `json:"word"`
 	GameId        string         `json:"gameId"`
 	UserId        string         `json:"userId"`
