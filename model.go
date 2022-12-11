@@ -107,8 +107,8 @@ type Pool struct {
 	Name    string   `json:"name"`
 }
 
-// templateData provides template parameters.
-type templateData struct {
+// TemplateData provides template parameters.
+type TemplateData struct {
 	Service  string
 	Revision string
 }
