@@ -106,3 +106,9 @@ type Pool struct {
 	Tickets []Ticket `json:"tickets"`
 	Name    string   `json:"name"`
 }
+
+// templateData provides template parameters.
+type templateData struct {
+	Service  string
+	Revision string
+}
