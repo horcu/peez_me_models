@@ -1,0 +1,115 @@
+package model
+
+type Game struct {
+	Players            []user          `json:"players"`
+	Word               string          `json:"word"`
+	Definition         string          `json:"Definition"`
+	MissingLetterIndex int             `json:"missingLetterIndex"`
+	GameId             string          `json:"gameId"`
+	RoundTime          int             `json:"roundTime"`
+	PlayIndex          int             `json:"playIndex"`
+	PlayerTurnId       string          `json:"playerTurnId"`
+	Plays              map[string]play `json:"plays"`
+	LeaderId           string          `json:"leaderId"`
+	PlayDirection      string          `json:"playDirection"`
+	Barriers           []string        `json:"barriers"`
+	Obstacles          []string        `json:"obstacles"`
+	Rewards            []string        `json:"rewards"`
+}
+
+type play struct {
+	Word          string         `json:"word"`
+	GameId        string         `json:"gameId"`
+	UserId        string         `json:"userId"`
+	TileLocations []TileLocation `json:"tileLocations"`
+	Definition    string         `json:"definition"`
+	PlayDirection string         `json:"playDirection"`
+	PlayIndex     int            `json:"playIndex"`
+}
+
+type WordDefinition struct {
+	Word       string `json:"word"`
+	Valid      bool   `json:"valid"`
+	Definition string `json:"Definition"`
+}
+
+type ErrorResponse struct {
+	Error string `json:"error"`
+}
+
+type TileLocation struct {
+	Index      int    `json:"index"`
+	Letter     string `json:"letter"`
+	AreaName   string `json:"areaName"`
+	UserId     string `json:"userId"`
+	IsSelected bool   `json:"isSelected"`
+}
+
+type Word struct {
+	Word string `json:"word"`
+}
+
+type PlayArea struct {
+	Lobby Lobby `json:"lobby"`
+}
+
+type user struct {
+	Available bool   `json:"available"`
+	FcmToken  string `json:"fcmToken"`
+	ID        string `json:"id"`
+	Name      string `json:"name"`
+	PhotoURL  string `json:"photoUrl"`
+}
+
+type PublicRoom struct {
+	Priv   string `json:"priv"`
+	Name   string `json:"name"`
+	Active bool   `json:"active"`
+	Users  []user `json:"users"`
+}
+
+type PrivateRoom struct {
+	Priv      string `json:"priv"`
+	Name      string `json:"name"`
+	Active    bool   `json:"active"`
+	CreatedBy string `json:"createdBy"`
+	Users     []user `json:"users"`
+}
+
+type Lobby struct {
+	Public  []PublicRoom  `json:"public"`
+	Private []PrivateRoom `json:"private"`
+}
+
+type Ticket struct {
+	Id               string            `json:"id"`
+	CreatedBy        string            `json:"createdBy"`
+	GameType         string            `json:"gameType"`
+	RoomType         string            `json:"roomType"`
+	IsActive         bool              `json:"isActive"`
+	Room             string            `json:"room"`
+	IsMatchTicket    bool              `json:"isMatchTicket"`
+	Created          string            `json:"created"`
+	Expires          string            `json:"expires"`
+	Invitees         map[string]string `json:"invitees"`
+	AcceptedBy       map[string]string `json:"acceptedBy"`
+	IsBeingProcessed bool              `json:"isBeingProcessed"`
+}
+
+type Match struct {
+	Players  []user `json:"players"`
+	Room     string `json:"room"`
+	Created  string `json:"created"`
+	GameType string `json:"gameType"`
+	RoomType string `json:"roomType"`
+}
+
+type InviteResponse struct {
+	Message string `json:"message"`
+	Ticket  Ticket `json:"ticket"`
+}
+
+type Pool struct {
+	Tickets []Ticket `json:"tickets"`
+	Name    string   `json:"name"`
+}
