@@ -1,7 +1,7 @@
-package model
+package models
 
 type Game struct {
-	Players            []user          `json:"players"`
+	Players            []User          `json:"players"`
 	Word               string          `json:"word"`
 	Definition         string          `json:"Definition"`
 	MissingLetterIndex int             `json:"missingLetterIndex"`
@@ -53,7 +53,7 @@ type PlayArea struct {
 	Lobby Lobby `json:"lobby"`
 }
 
-type user struct {
+type User struct {
 	Available bool   `json:"available"`
 	FcmToken  string `json:"fcmToken"`
 	ID        string `json:"id"`
@@ -61,24 +61,17 @@ type user struct {
 	PhotoURL  string `json:"photoUrl"`
 }
 
-type PublicRoom struct {
-	Priv   string `json:"priv"`
-	Name   string `json:"name"`
-	Active bool   `json:"active"`
-	Users  []user `json:"users"`
-}
-
-type PrivateRoom struct {
-	Priv      string `json:"priv"`
+type Room struct {
+	Privacy   string `json:"privacy"`
 	Name      string `json:"name"`
 	Active    bool   `json:"active"`
 	CreatedBy string `json:"createdBy"`
-	Users     []user `json:"users"`
+	Users     []User `json:"users"`
 }
 
 type Lobby struct {
-	Public  []PublicRoom  `json:"public"`
-	Private []PrivateRoom `json:"private"`
+	Public  []Room `json:"public"`
+	Private []Room `json:"private"`
 }
 
 type Ticket struct {
@@ -97,7 +90,7 @@ type Ticket struct {
 }
 
 type Match struct {
-	Players  []user `json:"players"`
+	Players  []User `json:"players"`
 	Room     string `json:"room"`
 	Created  string `json:"created"`
 	GameType string `json:"gameType"`
