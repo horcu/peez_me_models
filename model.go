@@ -118,3 +118,17 @@ type TicketResponse struct {
 	TicketId     string `json:"TicketId"`
 	UserId       string `json:"UserId"`
 }
+
+type WordSubmittedResponse struct {
+	Score              int            `json:"score"`
+	Word               string         `json:"word"`
+	GameId             string         `json:"gameId"`
+	MissingLetterIndex int            `json:"missingLetterIndex"`
+	PlayIndex          int            `json:"playIndex"`
+	PlayerTurnId       string         `json:"playerTurnId"`
+	WordIsGood         bool           `json:"wordIsGood"`
+	PlayDirection      string         `json:"playDirection"`
+	LeaderId           string         `json:"leaderId"`
+	TileLocations      []TileLocation `json:"tileLocations"`
+	Definition         string         `json:"Definition"`
+}
