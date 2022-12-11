@@ -132,3 +132,8 @@ type WordSubmittedResponse struct {
 	TileLocations      []TileLocation `json:"tileLocations"`
 	Definition         string         `json:"Definition"`
 }
+
+type DeleteRequest struct {
+	UserId string `json:"userId"`
+	GameId string `json:"gameId"`
+}
