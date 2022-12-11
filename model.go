@@ -111,3 +111,10 @@ type TemplateData struct {
 	Service  string
 	Revision string
 }
+
+type TicketResponse struct {
+	ResponseType string `json:"ResponseType"`
+	Accepted     bool   `json:"Accepted"`
+	TicketId     string `json:"TicketId"`
+	UserId       string `json:"UserId"`
+}
