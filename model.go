@@ -75,18 +75,18 @@ type Lobby struct {
 }
 
 type Ticket struct {
-	Id               string            `json:"id"`
-	CreatedBy        string            `json:"createdBy"`
-	GameType         string            `json:"gameType"`
-	RoomType         string            `json:"roomType"`
-	IsActive         bool              `json:"isActive"`
-	Room             string            `json:"room"`
-	IsMatchTicket    bool              `json:"isMatchTicket"`
-	Created          string            `json:"created"`
-	Expires          string            `json:"expires"`
-	Invitees         map[string]string `json:"invitees"`
-	AcceptedBy       map[string]string `json:"acceptedBy"`
-	IsBeingProcessed bool              `json:"isBeingProcessed"`
+	Id               string `json:"id"`
+	CreatedBy        string `json:"createdBy"`
+	GameType         string `json:"gameType"`
+	RoomType         string `json:"roomType"`
+	IsActive         bool   `json:"isActive"`
+	Room             string `json:"room"`
+	IsMatchTicket    bool   `json:"isMatchTicket"`
+	Created          string `json:"created"`
+	Expires          string `json:"expires"`
+	Invitees         []User `json:"invitees"`
+	AcceptedBy       []User `json:"acceptedBy"`
+	IsBeingProcessed bool   `json:"isBeingProcessed"`
 }
 
 type Match struct {
