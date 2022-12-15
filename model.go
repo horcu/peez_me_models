@@ -87,6 +87,7 @@ type Ticket struct {
 	Invitees         []User `json:"invitees"`
 	AcceptedBy       []User `json:"acceptedBy"`
 	IsBeingProcessed bool   `json:"isBeingProcessed"`
+	InvitationSent   bool   `json:"invitationSent"`
 }
 
 type Match struct {
