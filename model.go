@@ -90,7 +90,7 @@ type Ticket struct {
 	InvitationSent   bool   `json:"invitationSent"`
 }
 
-type Event struct {
+type PeezMeEvent struct {
 	Data  string `json:"data"`
 	Delta string `json:"delta"`
 }
