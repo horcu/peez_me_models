@@ -75,19 +75,19 @@ type Lobby struct {
 }
 
 type Ticket struct {
-	Id               string `json:"id"`
-	CreatedBy        string `json:"createdBy"`
-	GameType         string `json:"gameType"`
-	RoomType         string `json:"roomType"`
-	IsActive         bool   `json:"isActive"`
-	Room             string `json:"room"`
-	IsMatchTicket    bool   `json:"isMatchTicket"`
-	Created          string `json:"created"`
-	Expires          string `json:"expires"`
-	Invitees         []User `json:"invitees"`
-	AcceptedBy       []User `json:"acceptedBy"`
-	IsBeingProcessed bool   `json:"isBeingProcessed"`
-	InvitationSent   bool   `json:"invitationSent"`
+	Id               string `json:id,omitempty"`
+	CreatedBy        string `json:"createdBy,omitempty"`
+	GameType         string `json:"gameType,omitempty"`
+	RoomType         string `json:"roomType,omitempty"`
+	IsActive         bool   `json:"isActive,omitempty"`
+	Room             string `json:"room,omitempty"`
+	IsMatchTicket    bool   `json:"isMatchTicket,omitempty"`
+	Created          string `json:"created,omitempty"`
+	Expires          string `json:"expires,omitempty"`
+	Invitees         []User `json:"invitees,omitempty"`
+	AcceptedBy       []User `json:"acceptedBy,omitempty"`
+	IsBeingProcessed bool   `json:"isBeingProcessed,omitempty"`
+	InvitationSent   bool   `json:"invitationSent,omitempty"`
 }
 
 type PeezMeEvent struct {
