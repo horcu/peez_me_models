@@ -75,7 +75,7 @@ type Lobby struct {
 }
 
 type Ticket struct {
-	Id               string `json:id,omitempty"`
+	Id               string `json:"id,omitempty"`
 	CreatedBy        string `json:"createdBy,omitempty"`
 	GameType         string `json:"gameType,omitempty"`
 	RoomType         string `json:"roomType,omitempty"`
@@ -88,11 +88,6 @@ type Ticket struct {
 	AcceptedBy       []User `json:"acceptedBy,omitempty"`
 	IsBeingProcessed bool   `json:"isBeingProcessed,omitempty"`
 	InvitationSent   bool   `json:"invitationSent,omitempty"`
-}
-
-type PeezMeEvent struct {
-	Data  string `json:"data"`
-	Delta string `json:"delta"`
 }
 
 type Match struct {
@@ -142,4 +137,9 @@ type WordSubmittedResponse struct {
 type DeleteRequest struct {
 	UserId string `json:"userId"`
 	GameId string `json:"gameId"`
+}
+
+type PeezMeEvent struct {
+	Data  map[string]interface{} `json:"data,omitempty"`
+	Delta map[string]interface{} `json:"delta,omitempty"`
 }
