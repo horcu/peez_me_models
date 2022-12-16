@@ -90,6 +90,11 @@ type Ticket struct {
 	InvitationSent   bool   `json:"invitationSent"`
 }
 
+type Event struct {
+	Data  string `json:"data"`
+	Delta string `json:"delta"`
+}
+
 type Match struct {
 	Players  []User `json:"players"`
 	Room     string `json:"room"`
