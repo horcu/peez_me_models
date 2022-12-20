@@ -1,5 +1,7 @@
 package models
 
+import "encoding/json"
+
 type Game struct {
 	Players            []User          `json:"players"`
 	Word               string          `json:"word"`
@@ -88,6 +90,14 @@ type Ticket struct {
 	AcceptedBy       []User `json:"acceptedBy,omitempty"`
 	IsBeingProcessed bool   `json:"isBeingProcessed,omitempty"`
 	InvitationSent   bool   `json:"invitationSent,omitempty"`
+}
+
+func (t *Ticket) String() (string, error) {
+	js, err := json.Marshal(&t)
+	if err != nil {
+		return "", err
+	}
+	return string(js), nil
 }
 
 type Match struct {
