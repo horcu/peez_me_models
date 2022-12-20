@@ -150,6 +150,7 @@ type DeleteRequest struct {
 }
 
 type PeezMeEvent struct {
-	Data  map[string]interface{} `json:"data,omitempty"`
-	Delta map[string]interface{} `json:"delta,omitempty"`
+	Type  string      `json:"@type"`
+	Data  interface{} `json:"data"`
+	Delta Ticket      `json:"delta"`
 }
