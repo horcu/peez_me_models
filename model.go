@@ -93,7 +93,7 @@ type Ticket struct {
 }
 
 func (t *Ticket) String() (string, error) {
-	js, err := json.Marshal(&t)
+
 	var users []User
 	for _, invitee := range t.Invitees {
 		u, errInner := json.Marshal(&invitee)
@@ -107,9 +107,11 @@ func (t *Ticket) String() (string, error) {
 		}
 		users = append(users, usr)
 	}
+	js, err := json.Marshal(&t)
 	if err != nil {
 		return "", err
 	}
+
 	return string(js), nil
 }
 
@@ -166,4 +168,9 @@ type PeezMeEvent struct {
 	Type  string      `json:"@type,omitempty"`
 	Data  interface{} `json:"data,omitempty"`
 	Delta Ticket      `json:"delta,omitempty"`
+}
+
+type LobbyRoomRequest struct {
+	RoomId string `json:"id"`
+	UserId string `json:"userId"`
 }
