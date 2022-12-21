@@ -94,6 +94,19 @@ type Ticket struct {
 
 func (t *Ticket) String() (string, error) {
 	js, err := json.Marshal(&t)
+	var users []User
+	for _, invitee := range t.Invitees {
+		u, errInner := json.Marshal(&invitee)
+		if errInner != nil {
+			continue
+		}
+		var usr User
+		errInner2 := json.Unmarshal(u, &usr)
+		if errInner2 != nil {
+			continue
+		}
+		users = append(users, usr)
+	}
 	if err != nil {
 		return "", err
 	}
