@@ -172,7 +172,7 @@ type PeezMeEvent struct {
 
 type LobbyRoomAccessRequest struct {
 	RoomId string `json:"roomId"`
-	User   User   `json:"user"`
+	UserId string `json:"userId"`
 }
 
 type LobbyRoomCrudRequest struct {
