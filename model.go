@@ -170,7 +170,12 @@ type PeezMeEvent struct {
 	Delta Ticket      `json:"delta,omitempty"`
 }
 
-type LobbyRoomRequest struct {
+type LobbyRoomAccessRequest struct {
 	RoomId string `json:"id"`
 	User   User   `json:"user"`
+}
+
+type LobbyRoomCrudRequest struct {
+	RoomName string `json:"id"`
+	UserId   string `json:"user"`
 }
