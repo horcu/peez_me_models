@@ -177,5 +177,6 @@ type LobbyRoomAccessRequest struct {
 
 type LobbyRoomCrudRequest struct {
 	RoomName string `json:"roomName"`
+	RoomId   string `json:"roomId"`
 	User     User   `json:"user"`
 }
