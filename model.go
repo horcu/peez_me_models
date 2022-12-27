@@ -22,7 +22,7 @@ type Game struct {
 type Play struct {
 	Word          string         `json:"word"`
 	GameId        string         `json:"gameId"`
-	UserId        string         `json:"userId"`
+	Player        User           `json:"player"`
 	TileLocations []TileLocation `json:"tileLocations"`
 	Definition    string         `json:"definition"`
 	PlayDirection string         `json:"playDirection"`
@@ -43,7 +43,7 @@ type TileLocation struct {
 	Index      int    `json:"index"`
 	Letter     string `json:"letter"`
 	AreaName   string `json:"areaName"`
-	UserId     string `json:"userId"`
+	PLayer     User   `json:"player"`
 	IsSelected bool   `json:"isSelected"`
 }
 
@@ -64,10 +64,11 @@ type User struct {
 }
 
 type Room struct {
+	Id        string `json:"id"`
 	Privacy   string `json:"privacy"`
 	Name      string `json:"name"`
 	Active    bool   `json:"active"`
-	CreatedBy string `json:"createdBy"`
+	CreatedBy User   `json:"createdBy"`
 	Users     []User `json:"users"`
 }
 
@@ -78,7 +79,6 @@ type Lobby struct {
 
 type Ticket struct {
 	Id               string `json:"id"`
-	CreatedBy        string `json:"createdBy"`
 	GameType         string `json:"gameType"`
 	RoomType         string `json:"roomType"`
 	IsActive         bool   `json:"isActive"`
@@ -86,6 +86,7 @@ type Ticket struct {
 	IsMatchTicket    bool   `json:"isMatchTicket"`
 	Created          string `json:"created"`
 	Expires          string `json:"expires"`
+	CreatedBy        User   `json:"createdBy"`
 	Invitees         []User `json:"invitees"`
 	AcceptedBy       []User `json:"acceptedBy"`
 	IsBeingProcessed bool   `json:"isBeingProcessed"`
@@ -142,7 +143,7 @@ type TicketResponse struct {
 	ResponseType string `json:"ResponseType"`
 	Accepted     bool   `json:"Accepted"`
 	TicketId     string `json:"TicketId"`
-	UserId       string `json:"UserId"`
+	Player       User   `json:"player"`
 }
 
 type WordSubmittedResponse struct {
@@ -151,10 +152,10 @@ type WordSubmittedResponse struct {
 	GameId             string         `json:"gameId"`
 	MissingLetterIndex int            `json:"missingLetterIndex"`
 	PlayIndex          int            `json:"playIndex"`
-	PlayerTurnId       string         `json:"playerTurnId"`
+	PlayerTurn         User           `json:"playerTurn"`
 	WordIsGood         bool           `json:"wordIsGood"`
 	PlayDirection      string         `json:"playDirection"`
-	LeaderId           string         `json:"leaderId"`
+	Leader             User           `json:"leader"`
 	TileLocations      []TileLocation `json:"tileLocations"`
 	Definition         string         `json:"Definition"`
 }
