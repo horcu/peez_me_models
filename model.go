@@ -12,11 +12,11 @@ type Game struct {
 	PlayIndex          int             `json:"playIndex"`
 	PlayerTurnId       string          `json:"playerTurnId"`
 	Plays              map[string]Play `json:"plays"`
-	LeaderId           string          `json:"leaderId"`
+	Player             User            `json:"player"`
 	PlayDirection      string          `json:"playDirection"`
-	Barriers           []string        `json:"barriers"`
-	Obstacles          []string        `json:"obstacles"`
-	Rewards            []string        `json:"rewards"`
+	Barriers           []TileLocation  `json:"barriers"`
+	Obstacles          []TileLocation  `json:"obstacles"`
+	Rewards            []TileLocation  `json:"rewards"`
 }
 
 type Play struct {
