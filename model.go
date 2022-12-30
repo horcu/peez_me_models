@@ -17,8 +17,6 @@ type Game struct {
 	Barriers           []TileLocation  `json:"barriers"`
 	Obstacles          []TileLocation  `json:"obstacles"`
 	Rewards            []TileLocation  `json:"rewards"`
-	Status             GameStatus      `json:"status"`
-	Ticket             Ticket          `json:"ticket"`
 }
 
 type Play struct {
@@ -80,19 +78,20 @@ type Lobby struct {
 }
 
 type Ticket struct {
-	Id               string `json:"id"`
-	GameType         string `json:"gameType"`
-	RoomType         string `json:"roomType"`
-	IsActive         bool   `json:"isActive"`
-	Room             string `json:"room"`
-	IsMatchTicket    bool   `json:"isMatchTicket"`
-	Created          string `json:"created"`
-	Expires          string `json:"expires"`
-	CreatedBy        User   `json:"createdBy"`
-	Invitees         []User `json:"invitees"`
-	AcceptedBy       []User `json:"acceptedBy"`
-	IsBeingProcessed bool   `json:"isBeingProcessed"`
-	InvitationSent   bool   `json:"invitationSent"`
+	Id               string       `json:"id"`
+	GameType         string       `json:"gameType"`
+	RoomType         string       `json:"roomType"`
+	IsActive         bool         `json:"isActive"`
+	Room             string       `json:"room"`
+	IsMatchTicket    bool         `json:"isMatchTicket"`
+	Created          string       `json:"created"`
+	Expires          string       `json:"expires"`
+	CreatedBy        User         `json:"createdBy"`
+	Invitees         []User       `json:"invitees"`
+	AcceptedBy       []User       `json:"acceptedBy"`
+	IsBeingProcessed bool         `json:"isBeingProcessed"`
+	InvitationSent   bool         `json:"invitationSent"`
+	Status           TicketStatus `json:"status"`
 }
 
 func (t *Ticket) String() (string, error) {
@@ -184,10 +183,10 @@ type LobbyRoomCrudRequest struct {
 	User     User   `json:"user"`
 }
 
-type GameStatus string
+type TicketStatus string
 
 const (
-	Staged  GameStatus = "Staged"
-	Started GameStatus = "Started"
-	Ended   GameStatus = "Ended"
+	Staged TicketStatus = "Staged"
+	Active TicketStatus = "Active"
+	Ended  TicketStatus = "Ended"
 )
