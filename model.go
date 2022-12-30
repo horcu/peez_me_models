@@ -186,7 +186,7 @@ type LobbyRoomCrudRequest struct {
 type GameStatus string
 
 const (
-	Staged  GameStatus = "staged"
-	Started GameStatus = "started"
-	Ended   GameStatus = "ended"
+	Staged  GameStatus = "Staged"
+	Started GameStatus = "Started"
+	Ended   GameStatus = "Ended"
 )
