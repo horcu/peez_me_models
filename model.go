@@ -187,6 +187,7 @@ type TicketStatus string
 
 const (
 	Staged TicketStatus = "Staged"
+	Ready  TicketStatus = "Ready"
 	Active TicketStatus = "Active"
 	Ended  TicketStatus = "Ended"
 )
