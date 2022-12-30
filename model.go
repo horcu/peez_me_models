@@ -82,7 +82,7 @@ type Ticket struct {
 	GameType         string       `json:"gameType"`
 	RoomType         string       `json:"roomType"`
 	IsActive         bool         `json:"isActive"`
-	Room             string       `json:"room"`
+	Room             Room         `json:"room"`
 	IsMatchTicket    bool         `json:"isMatchTicket"`
 	Created          string       `json:"created"`
 	Expires          string       `json:"expires"`
