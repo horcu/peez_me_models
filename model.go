@@ -10,13 +10,14 @@ type Game struct {
 	GameId             string          `json:"gameId"`
 	RoundTime          int             `json:"roundTime"`
 	PlayIndex          int             `json:"playIndex"`
-	PlayerTurnId       string          `json:"playerTurnId"`
+	PlayerTurn         User            `json:"playerTurn"`
 	Plays              map[string]Play `json:"plays"`
 	Player             User            `json:"player"`
 	PlayDirection      string          `json:"playDirection"`
 	Barriers           []TileLocation  `json:"barriers"`
 	Obstacles          []TileLocation  `json:"obstacles"`
 	Rewards            []TileLocation  `json:"rewards"`
+	Status             GameStatus      `json:"status"`
 }
 
 type Play struct {
@@ -181,3 +182,11 @@ type LobbyRoomCrudRequest struct {
 	RoomId   string `json:"roomId"`
 	User     User   `json:"user"`
 }
+
+type GameStatus string
+
+const (
+	Staged  GameStatus = "staged"
+	Started GameStatus = "started"
+	Ended   GameStatus = "ended"
+)
