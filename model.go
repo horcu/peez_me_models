@@ -89,6 +89,7 @@ type Ticket struct {
 	CreatedBy        User         `json:"createdBy"`
 	Invitees         []User       `json:"invitees"`
 	AcceptedBy       []User       `json:"acceptedBy"`
+	RejectedBy       []User       `json:"rejectedBy"`
 	IsBeingProcessed bool         `json:"isBeingProcessed"`
 	InvitationSent   bool         `json:"invitationSent"`
 	Status           TicketStatus `json:"status"`
