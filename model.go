@@ -187,6 +187,7 @@ type LobbyRoomCrudRequest struct {
 type TicketStatus string
 
 const (
+	New    TicketStatus = "New"
 	Staged TicketStatus = "Staged"
 	Ready  TicketStatus = "Ready"
 	Active TicketStatus = "Active"
