@@ -17,6 +17,7 @@ type Game struct {
 	Barriers           []TileLocation  `json:"barriers"`
 	Obstacles          []TileLocation  `json:"obstacles"`
 	Rewards            []TileLocation  `json:"rewards"`
+	Time               string          `json:"time"`
 }
 
 type Play struct {
