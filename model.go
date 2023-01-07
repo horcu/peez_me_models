@@ -94,6 +94,7 @@ type Ticket struct {
 	IsBeingProcessed bool         `json:"isBeingProcessed"`
 	InvitationSent   bool         `json:"invitationSent"`
 	Status           TicketStatus `json:"status"`
+	GameId           string       `json:"gameId,omitempty"`
 }
 
 func (t *Ticket) String() (string, error) {
