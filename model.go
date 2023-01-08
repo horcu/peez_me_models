@@ -21,6 +21,7 @@ type Game struct {
 }
 
 type Play struct {
+	Id            string         `json:"id"`
 	Word          string         `json:"word"`
 	GameId        string         `json:"gameId"`
 	Player        User           `json:"player"`
@@ -121,6 +122,7 @@ func (t *Ticket) String() (string, error) {
 }
 
 type Match struct {
+	Id       string `json:"id"`
 	Players  []User `json:"players"`
 	Room     string `json:"room"`
 	Created  string `json:"created"`
@@ -144,6 +146,7 @@ type TemplateData struct {
 }
 
 type TicketResponse struct {
+	id           string `json:"id"`
 	ResponseType string `json:"ResponseType"`
 	Accepted     bool   `json:"Accepted"`
 	TicketId     string `json:"TicketId"`
@@ -151,6 +154,7 @@ type TicketResponse struct {
 }
 
 type WordSubmittedResponse struct {
+	id                 string         `json:"id"`
 	Score              int            `json:"score"`
 	Word               string         `json:"word"`
 	GameId             string         `json:"gameId"`
