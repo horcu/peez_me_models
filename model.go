@@ -166,6 +166,7 @@ type WordSubmittedResponse struct {
 	Leader             User           `json:"leader"`
 	TileLocations      []TileLocation `json:"tileLocations"`
 	Definition         string         `json:"Definition"`
+	GameOver           bool           `json:"gameOver"`
 }
 
 type DeleteRequest struct {
