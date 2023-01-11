@@ -1,6 +1,12 @@
 package models
 
-import "encoding/json"
+import (
+	"context"
+	"encoding/json"
+	"firebase.google.com/go/v4/db"
+	_ "firebase.google.com/go/v4/db"
+	"net/http"
+)
 
 type Game struct {
 	Players            []User          `json:"players"`
@@ -90,28 +96,29 @@ type Ticket struct {
 	Expires          string       `json:"expires"`
 	CreatedBy        User         `json:"createdBy"`
 	Invitees         []User       `json:"invitees"`
-	AcceptedBy       []User       `json:"acceptedBy"`
-	RejectedBy       []User       `json:"rejectedBy"`
+	AcceptedBy       []User       `json:"acceptedBy,omitempty"`
+	RejectedBy       []User       `json:"rejectedBy,omitempty"`
 	IsBeingProcessed bool         `json:"isBeingProcessed"`
 	InvitationSent   bool         `json:"invitationSent"`
 	Status           TicketStatus `json:"status"`
 	GameId           string       `json:"gameId,omitempty"`
+	Capacity         int32        `json:"capacity,omitempty"`
 }
 
 func (t *Ticket) String() (string, error) {
 
-	var users []User
+	var users *[]User
 	for _, invitee := range t.Invitees {
 		u, errInner := json.Marshal(&invitee)
 		if errInner != nil {
 			continue
 		}
-		var usr User
+		var usr *User
 		errInner2 := json.Unmarshal(u, &usr)
 		if errInner2 != nil {
 			continue
 		}
-		users = append(users, usr)
+		*users = append(*users, *usr)
 	}
 	js, err := json.Marshal(&t)
 	if err != nil {
@@ -119,6 +126,22 @@ func (t *Ticket) String() (string, error) {
 	}
 
 	return string(js), nil
+}
+
+func (t *Ticket) FromFbRef(ref *db.Ref) error {
+	err := ref.Get(context.Background(), &t)
+	if err != nil {
+		//could not find invitation
+		return err
+	}
+	return nil
+}
+
+func (t *Ticket) FromBody(r *http.Request) error {
+	if err := json.NewDecoder(r.Body).Decode(&t); err != nil {
+		return err
+	}
+	return nil
 }
 
 type Match struct {
