@@ -9,32 +9,31 @@ import (
 )
 
 type Game struct {
-	Players            []User          `json:"players"`
-	Word               string          `json:"word"`
-	Definition         string          `json:"Definition"`
-	MissingLetterIndex int             `json:"missingLetterIndex"`
-	GameId             string          `json:"gameId"`
-	RoundTime          int             `json:"roundTime"`
-	PlayIndex          int             `json:"playIndex"`
-	PlayerTurn         User            `json:"playerTurn"`
-	Plays              map[string]Play `json:"plays"`
-	Player             User            `json:"player"`
-	PlayDirection      string          `json:"playDirection"`
-	Barriers           []TileLocation  `json:"barriers"`
-	Obstacles          []TileLocation  `json:"obstacles"`
-	Rewards            []TileLocation  `json:"rewards"`
-	Time               string          `json:"time"`
+	Players            []User                 `json:"players"`
+	Word               string                 `json:"word"`
+	Definition         string                 `json:"Definition"`
+	MissingLetterIndex int                    `json:"missingLetterIndex"`
+	GameId             string                 `json:"gameId"`
+	RoundTime          int                    `json:"roundTime"`
+	PlayIndex          int                    `json:"playIndex"`
+	PlayerTurn         User                   `json:"playerTurn"`
+	Plays              map[string]PlayerMoves `json:"plays"`
+	Player             User                   `json:"player"`
+	PlayDirection      string                 `json:"playDirection"`
+	Barriers           []TileLocation         `json:"barriers"`
+	Obstacles          []TileLocation         `json:"obstacles"`
+	Rewards            []TileLocation         `json:"rewards"`
+	Time               string                 `json:"time"`
 }
 
-type Play struct {
+type PlayerMoves struct {
 	Id            string         `json:"id"`
-	Word          string         `json:"word"`
 	GameId        string         `json:"gameId"`
 	Player        User           `json:"player"`
 	TileLocations []TileLocation `json:"tileLocations"`
-	Definition    string         `json:"definition"`
-	PlayDirection string         `json:"playDirection"`
+	MoveDirection string         `json:"moveDirection"`
 	PlayIndex     int            `json:"playIndex"`
+	Color         string         `json:"color"`
 }
 
 type WordDefinition struct {
