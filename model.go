@@ -31,7 +31,6 @@ type PlayerMoves struct {
 	GameId        string         `json:"gameId"`
 	Player        User           `json:"player"`
 	TileLocations []TileLocation `json:"tileLocations"`
-	MoveDirection string         `json:"moveDirection"`
 	PlayIndex     int            `json:"playIndex"`
 	Color         string         `json:"color"`
 }
