@@ -32,7 +32,7 @@ type PlayerMoves struct {
 	Player        User           `json:"player"`
 	TileLocations []TileLocation `json:"tileLocations"`
 	PlayIndex     int            `json:"playIndex"`
-	Color         string         `json:"color"`
+	Color         int            `json:"color"`
 }
 
 type WordDefinition struct {
