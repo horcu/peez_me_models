@@ -17,7 +17,7 @@ type Game struct {
 	RoundTime          int                    `json:"roundTime"`
 	PlayIndex          int                    `json:"playIndex"`
 	PlayerTurn         User                   `json:"playerTurn"`
-	PlayOrder          map[int]User           `json:"playOrder"`
+	PlayOrder          []User                 `json:"playOrder"`
 	Plays              map[string]PlayerMoves `json:"plays"`
 	Player             User                   `json:"player"`
 	PlayDirection      string                 `json:"playDirection"`
